@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vantly Airlines — Devis groupe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="theme-home" data-depth="0">
+  <header class="site-header">
+    <a class="brand" href="./"><span class="mark">V</span> Vantly Airlines</a>
+    <a class="header-link" href="#groupes">Voyages de groupe</a>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <p style="letter-spacing:.12em;text-transform:uppercase;font-size:.75rem;margin:0 0 .6rem">Compagnie fictive</p>
+      <h1>Devis groupe pour les evals navigateur.</h1>
+      <p>Deux parcours calqués sur les pièges réels des sites Transavia et Air France : autocomplete, datepicker, vols en horaires, radios cachées, validation, puis un numéro de dossier déterministe.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="groupoffer/">Offre groupe (parcours Hop)</a>
+        <a class="btn btn-ghost" href="group-travel/" style="color:white;border-color:oklch(1 0 0 / .35)">Demande de voyage (Flagship)</a>
+      </div>
+    </div>
+  </section>
+  <main class="wrap" id="groupes">
+    <div class="grid-2">
+      <article class="card">
+        <h2>Hop — /groupoffer</h2>
+        <p>Wizard 5 étapes : recherche, grille J-1 / J / J+1, bagages, booker, groupe. Les boutons de vol affichent uniquement <code>6:00 - 7:20</code>. Maximum 3 aller + 3 retour. Dates hors calendrier → « Vol aller invalide sélectionné ».</p>
+        <a class="btn btn-primary" href="groupoffer/">Ouvrir l’offre groupe</a>
+      </article>
+      <article class="card">
+        <h2>Flagship — /group-travel</h2>
+        <p>Formulaire accordéon : Voyage → Confirmer → Groupe → Confirmer → Demandes spéciales → Envoyer ma demande. Champs invalides : « Ce champ est obligatoire. » Minimum 10 passagers.</p>
+        <a class="btn btn-primary" href="group-travel/">Ouvrir la demande de voyage</a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">Vantly Airlines n’existe pas. Zéro backend. Idéal pour evals d’agents navigateur.</footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/boot.js"></script>
+</body>
+</html>

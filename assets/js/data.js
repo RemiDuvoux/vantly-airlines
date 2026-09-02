@@ -1,0 +1,110 @@
+window.VA = window.VA || {};
+
+VA.AIRPORTS = [
+  { iata: "ORY", city: "Paris", name: "Paris Orly", country: "France", aliases: ["par", "ory", "orly", "paris"] },
+  { iata: "CDG", city: "Paris", name: "Paris Charles de Gaulle", country: "France", aliases: ["par", "cdg", "roissy", "paris"] },
+  { iata: "AMS", city: "Amsterdam", name: "Amsterdam Schiphol", country: "Pays-Bas", aliases: ["ams", "amsterdam", "schiphol"] },
+  { iata: "NCE", city: "Nice", name: "Nice Côte d'Azur", country: "France", aliases: ["nce", "nice"] },
+  { iata: "MRS", city: "Marseille", name: "Marseille Provence", country: "France", aliases: ["mrs", "marseille"] },
+  { iata: "LYS", city: "Lyon", name: "Lyon Saint-Exupéry", country: "France", aliases: ["lys", "lyon"] },
+  { iata: "TLS", city: "Toulouse", name: "Toulouse-Blagnac", country: "France", aliases: ["tls", "toulouse"] },
+  { iata: "NTE", city: "Nantes", name: "Nantes Atlantique", country: "France", aliases: ["nte", "nantes"] },
+  { iata: "MPL", city: "Montpellier", name: "Montpellier Méditerranée", country: "France", aliases: ["mpl", "montpellier"] },
+  { iata: "OPO", city: "Porto", name: "Porto Francisco Sá Carneiro", country: "Portugal", aliases: ["opo", "porto"] },
+  { iata: "LIS", city: "Lisbonne", name: "Lisbonne Humberto Delgado", country: "Portugal", aliases: ["lis", "lisboa", "lisbonne", "lisbon"] },
+  { iata: "FAO", city: "Faro", name: "Faro", country: "Portugal", aliases: ["fao", "faro", "algarve"] },
+  { iata: "BCN", city: "Barcelone", name: "Barcelone-El Prat", country: "Espagne", aliases: ["bcn", "barcelona", "barcelone"] },
+  { iata: "MAD", city: "Madrid", name: "Madrid-Barajas", country: "Espagne", aliases: ["mad", "madrid"] },
+  { iata: "AGP", city: "Malaga", name: "Malaga-Costa del Sol", country: "Espagne", aliases: ["agp", "malaga", "málaga"] },
+  { iata: "ALC", city: "Alicante", name: "Alicante-Elche", country: "Espagne", aliases: ["alc", "alicante"] },
+  { iata: "PMI", city: "Palma", name: "Palma de Majorque", country: "Espagne", aliases: ["pmi", "palma", "majorque"] },
+  { iata: "FCO", city: "Rome", name: "Rome Fiumicino", country: "Italie", aliases: ["fco", "rome", "roma", "fiumicino"] },
+  { iata: "MXP", city: "Milan", name: "Milan Malpensa", country: "Italie", aliases: ["mxp", "milan", "milano"] },
+  { iata: "NAP", city: "Naples", name: "Naples-Capodichino", country: "Italie", aliases: ["nap", "naples", "napoli"] },
+  { iata: "ATH", city: "Athènes", name: "Athènes Elefthérios Venizélos", country: "Grèce", aliases: ["ath", "athens", "athenes", "athènes"] },
+  { iata: "LHR", city: "Londres", name: "Londres Heathrow", country: "Royaume-Uni", aliases: ["lhr", "lon", "london", "londres", "heathrow"] },
+  { iata: "LGW", city: "Londres", name: "Londres Gatwick", country: "Royaume-Uni", aliases: ["lgw", "lon", "london", "londres", "gatwick"] },
+  { iata: "JFK", city: "New York", name: "New York JFK", country: "États-Unis", aliases: ["jfk", "nyc", "new york", "newyork"] },
+  { iata: "YUL", city: "Montréal", name: "Montréal-Trudeau", country: "Canada", aliases: ["yul", "montreal", "montréal"] },
+];
+
+VA.NETWORK = {
+  ORY: ["OPO", "LIS", "FAO", "BCN", "AGP", "ALC", "PMI", "NAP", "FCO", "ATH", "NCE", "MRS", "TLS", "NTE", "AMS"],
+  CDG: ["JFK", "YUL", "LHR", "FCO", "BCN", "LIS", "ATH", "NCE", "AMS", "MXP"],
+  AMS: ["ORY", "CDG", "OPO", "LIS", "BCN", "NCE"],
+  NCE: ["ORY", "CDG", "AMS", "LIS", "OPO"],
+  MRS: ["ORY", "OPO", "LIS"],
+  LYS: ["OPO", "LIS", "BCN"],
+  TLS: ["ORY", "OPO", "LIS"],
+  NTE: ["ORY", "OPO", "LIS"],
+  MPL: ["ORY", "OPO"],
+  OPO: ["ORY", "CDG", "AMS", "NCE", "MRS", "LYS", "TLS", "NTE"],
+  LIS: ["ORY", "CDG", "AMS", "NCE", "MRS", "LYS"],
+  FAO: ["ORY"],
+  BCN: ["ORY", "CDG", "AMS", "LYS"],
+  MAD: ["CDG", "ORY"],
+  AGP: ["ORY"],
+  ALC: ["ORY"],
+  PMI: ["ORY"],
+  FCO: ["ORY", "CDG"],
+  MXP: ["CDG"],
+  NAP: ["ORY"],
+  ATH: ["ORY", "CDG"],
+  LHR: ["CDG"],
+  LGW: ["ORY"],
+  JFK: ["CDG"],
+  YUL: ["CDG"],
+};
+
+VA.DURATION_MIN = {
+  "ORY-OPO": 80,
+  "ORY-LIS": 140,
+  "ORY-FAO": 155,
+  "ORY-BCN": 100,
+  "ORY-AGP": 140,
+  "ORY-ALC": 130,
+  "ORY-PMI": 110,
+  "ORY-NAP": 130,
+  "ORY-FCO": 120,
+  "ORY-ATH": 185,
+  "ORY-NCE": 85,
+  "ORY-MRS": 75,
+  "ORY-TLS": 75,
+  "ORY-NTE": 60,
+  "ORY-AMS": 80,
+  "CDG-JFK": 480,
+  "CDG-YUL": 430,
+  "CDG-LHR": 75,
+  "CDG-FCO": 120,
+  "CDG-BCN": 110,
+  "CDG-LIS": 150,
+  "CDG-ATH": 190,
+  "CDG-NCE": 90,
+  "CDG-AMS": 75,
+  "CDG-MXP": 90,
+};
+
+VA.MONTHS_FR = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+VA.DAYS_FR = ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."];
+VA.MONTHS_LONG_FR = [
+  "janvier", "février", "mars", "avril", "mai", "juin",
+  "juillet", "août", "septembre", "octobre", "novembre", "décembre",
+];
+
+VA.TRAVEL_REASONS = [
+  "Loisirs", "Sport", "Éducation", "Récompense", "Congrès",
+  "Événement spécial", "Musique", "Croisière", "Santé", "Autre",
+];
+
+VA.DIAL_CODES = [
+  { country: "France", code: "+33" },
+  { country: "Belgique", code: "+32" },
+  { country: "Pays-Bas", code: "+31" },
+  { country: "Portugal", code: "+351" },
+  { country: "Espagne", code: "+34" },
+  { country: "Italie", code: "+39" },
+  { country: "Allemagne", code: "+49" },
+  { country: "Royaume-Uni", code: "+44" },
+  { country: "États-Unis", code: "+1" },
+  { country: "Canada", code: "+1" },
+];
