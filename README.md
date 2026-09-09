@@ -12,6 +12,7 @@ Vantly’s `airline-quote` agent fills live group forms (Transavia `/groupoffer`
 | --- | --- | --- |
 | `/groupoffer/` | Transavia group offer wizard | `transavia-group-request` |
 | `/group-travel/` | Air France group travel form | `air-france-group-bookings` |
+| `/quote/` | Transavia-style group offer PDF | — |
 
 Shared traps from `navigate-travel-forms`: 3-letter airport autocomplete + click a suggestion; datepicker only (typed dates are ignored).
 
@@ -47,9 +48,19 @@ Flagship (`/group-travel`) extra rules:
 - **Envoyer ma demande** stays disabled until all three sections are confirmed
 - Default travel reason is **Autre**; default country is **France**
 
+`/quote/` extra rules:
+
+- Same airport autocomplete + datepicker as Hop
+- Builds 3 outbound + 3 inbound fake flights with deterministic prices
+- `#quote-reference` — e.g. `GB-572867` (same inputs → same id)
+- `#eval-payload` — JSON of the generated offer
+- Downloads `{GB-XXXXXX} - Offre de groupe.pdf`
+
 Query flags:
 
 - `?scenario=no-flights` — empty Hop offer grid
+- `/quote/?origin=ORY&destination=OPO&outbound=2026-09-10&return=2026-09-15&pax=40` — prefill
+- `&download=1` — also trigger the PDF download
 
 ## GitHub Pages
 

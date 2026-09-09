@@ -376,6 +376,113 @@ img { max-width: 100%; }
   font-size: 0.8rem;
 }
 
+.quote-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.quote-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--hop-deep);
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+.quote-sheet {
+  background: white;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  padding: 2rem 2.2rem 2.4rem;
+  margin: 0 auto 1rem;
+  max-width: 780px;
+  color: oklch(0.24 0.02 250);
+}
+.quote-sheet h1 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+}
+.quote-sheet h2 {
+  margin: 1.8rem 0 0.8rem;
+  font-size: 1.15rem;
+}
+.quote-sheet p { margin: 0 0 0.85rem; }
+.quote-mailhead {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.quote-mailhead span {
+  display: inline-block;
+  width: 3.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.quote-option {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem 1.1rem 1.1rem;
+  margin: 0.85rem 0;
+  background: oklch(0.99 0.005 240);
+}
+.quote-option-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-bottom: 0.35rem;
+}
+.quote-date { font-weight: 600; margin: 0 0 0.7rem !important; }
+.quote-legs {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+.quote-legs strong {
+  display: block;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.quote-legs span { display: block; color: var(--muted); font-size: 0.9rem; }
+.quote-iata { font-weight: 700; color: var(--ink) !important; letter-spacing: 0.04em; }
+.quote-leg-line {
+  height: 1px;
+  background: var(--line);
+  margin-top: -1.2rem;
+}
+.quote-flight { font-size: 0.92rem; margin: 0 0 0.7rem !important; }
+.quote-price {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.quote-price th {
+  text-align: right;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 0 0 0.35rem;
+}
+.quote-price th:first-child,
+.quote-price td:first-child { text-align: left; }
+.quote-price td { padding: 0.2rem 0; }
+.quote-price td:nth-child(2),
+.quote-price td:nth-child(3) { text-align: right; }
+.quote-price .is-total td {
+  font-weight: 700;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--line);
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 1.4rem;
